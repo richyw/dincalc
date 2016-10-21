@@ -1,7 +1,7 @@
 # This function takes the weight, height, age and skier type and returns the numerical
 # value that corresponds to the corrected skier code on the din chart
 
-def calc_skier_code(weight, height,age,skier_type):
+def calc_skier_code(weight,height,age,skier_type):
     # Compute Uncorrected Skier Code
     # Assigns a number from 0-14 corresponding to skier code from a-o
     weight_range = [0,30,39,48,57,67,79,92,108,126,148,175,210]
