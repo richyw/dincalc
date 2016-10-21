@@ -1,6 +1,7 @@
 import string
 from calc_skier_code import calc_skier_code
 from calc_bsl_code import calc_bsl_code
+from calc_din_setting import calc_din_setting
 
 # Receive the data to determine visual indicator setting
 weight = input('Weight: ')
@@ -17,5 +18,7 @@ letter = list(string.uppercase)[skier_code]
 #compute bsl code
 bsl_code = calc_bsl_code(boot_length)
 
-print(letter)
-print(bsl_code)
+#compute din setting
+din_setting = calc_din_setting(skier_code,bsl_code)
+
+print(din_setting)
