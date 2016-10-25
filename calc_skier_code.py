@@ -35,6 +35,12 @@ def calc_skier_code(weight,height,age,skier_type):
     elif skier_type == "3+":
         skier_code += 3
 
+    if skier_type == 3:
+        if weight <= 48:
+            skier_code += 1
+        else:
+            skier_code += skier_type - 1    
+
     else:
         skier_code += skier_type - 1
 
