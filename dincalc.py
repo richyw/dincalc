@@ -19,6 +19,8 @@ def parseArguments():
     parser.add_argument("-a","--age",help="Age",type=float,default=0)
     parser.add_argument("-t","--skier_type",help="Skier Type",type=int,default=0)
     parser.add_argument("-b","--boot_length",help="Boot Sole Length",type=float,default=0)
+    # Argument to take height in feet/inches
+    parser.add_argument("-imp","--imperial",help="Imperial",action="store_true")
 
     args = parser.parse_args()
 
@@ -38,7 +40,14 @@ if __name__ == '__main__':
         # Receive the data to determine visual indicator setting
         print("Input Skier Data: ")
         weight = input('Weight: ')
-        height = input('Height: ')
+        if args.imperial:
+            print("Input Height")
+            feet = input('Feet: ')
+            inches = input('Inches: ')
+            height = feet*30.48+inches*2.54
+        else:
+            height = input('Height: ')
+
         age = input('Age: ')
         skier_type = input('Skier Type: ') # How to make this just the five options?
         boot_length = input('Boot Sole Length: ')
