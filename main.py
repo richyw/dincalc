@@ -28,5 +28,3 @@ class DincalcApp(App):
 
 if __name__ == '__main__':
     DincalcApp().run()
-
-#
