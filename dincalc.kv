@@ -1,7 +1,5 @@
 #: import SlideTransition kivy.uix.screenmanager.SlideTransition
 
-# WANT TO USE FLOATLAYOUT
-
 ScreenManagement:
     transition: SlideTransition()
     MainScreen:
@@ -27,7 +25,7 @@ ScreenManagement:
         GridLayout:
             id: inputgrid
             cols: 2
-            size_hint: 0.8,0.25
+            size_hint: 0.8,0.33
             pos_hint: {'center_x':0.5, 'center_y':0.7}
             padding: ['2dp','2dp','2dp','2dp']
             spacing: ['2dp','2dp']
@@ -75,6 +73,30 @@ ScreenManagement:
                 font_size: '24sp'
                 size_hint: 0.4,0.15
 
+            Label:
+                font_size: '24sp'
+                size_hint: 0.4,0.15
+                text: "Ability"
+
+            BoxLayout:
+                size_hint: 0.4,0.15
+                orientation: 'horizontal'
+                ToggleButton:
+                    group: 'skiertype'
+                    text: "-1"
+                ToggleButton:
+                    group: 'skiertype'
+                    text: "1"
+                ToggleButton:
+                    group: 'skiertype'
+                    text: "2"
+                ToggleButton:
+                    group: 'skiertype'
+                    text: "3"
+                ToggleButton:
+                    group: 'skiertype'
+                    text: "3+"
+
         Button:
             id:windowbutton
             on_release: app.root.current = 'chart'
@@ -85,10 +107,10 @@ ScreenManagement:
 
         Button:
             id:dinvalue
-            text: '8.5'
+            text: '8'
             pos_hint: {'center_x':.5, 'center_y': .4}
             size_hint: 0.3,0.2
-            font_size: '72dp'
+            font_size: '64sp'
 
 <ChartScreen>:
     name: 'chart'
