@@ -40,6 +40,8 @@ if __name__ == '__main__':
         # Receive the data to determine visual indicator setting
         print("Input Skier Data: ")
         weight = input('Weight: ')
+
+        #get height (imperial or default metric)
         if args.imperial:
             print("Input Height")
             feet = input('Feet: ')
