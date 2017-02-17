@@ -115,7 +115,7 @@ ScreenManagement:
                     on_press: root.getSkierType("3+")
 
         Button:
-            id:windowbutton
+            id: windowbutton
             on_release: app.root.current = 'chart'
             text: "Chart"
             pos_hint: {'center_x':.5, 'center_y': .1}
@@ -123,8 +123,9 @@ ScreenManagement:
             font_size: '36dp'
 
         Button:
-            id:dinvalue
-            text: '8'
+            id: dinvalue
+            on_release: root.calculate_din()
+            text: root.din_setting
             pos_hint: {'center_x':.5, 'center_y': .4}
             size_hint: 0.3,0.2
             font_size: '64sp'
