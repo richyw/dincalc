@@ -7,9 +7,10 @@ def calc_skier_code(weight,height,age,skier_type):
     age = int(age)
     if skier_type == "3+":
         skier_type = 4
-    if skier_type == "-1":
-        skier_type == 0
-    skier_type = int(skier_type)
+    elif skier_type == "-1":
+        skier_type = 0
+    else:
+        skier_type = int(skier_type)
 
     # Compute Uncorrected Skier Code
     # Assigns a number from 0-14 corresponding to skier code from a-o
@@ -54,9 +55,9 @@ def calc_bsl_code(bsl):
     chart"""
     bsl = int(bsl)
     bsl_range = [0,231,251,271,291,311,331,355]
-    for index in range(len(bsl_range)):
-        if bsl >= bsl_range[index]:
-            bsl_code = index
+    for (ind, val) in enumerate(bsl_range):
+        if bsl >= val:
+            bsl_code = ind
     return bsl_code
 
 def calc_din_setting(skier_code,bsl_code):

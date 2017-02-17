@@ -1,13 +1,6 @@
 import string
 import argparse #for initial arguments
-from calc_skier_code import calc_skier_code
-from calc_bsl_code import calc_bsl_code
-from calc_din_setting import calc_din_setting
-
-# Print Title
-print ("Din Calculator Version 0.1")
-print ("Richard Williams 2016")
-print ("")
+from din import calc_skier_code, calc_bsl_code, calc_din_setting
 
 def parseArguments():
     #Create Argument Parser
@@ -27,6 +20,11 @@ def parseArguments():
     return args
 
 if __name__ == '__main__':
+    # Print Title
+    print ("Din Calculator Version 0.1")
+    print ("Richard Williams 2016")
+    print ("")
+
     #Parse the Arguments
     args = parseArguments()
 
@@ -39,13 +37,13 @@ if __name__ == '__main__':
     if args.weight == 0:
         # Receive the data to determine visual indicator setting
         print("Input Skier Data: ")
-        weight = input('Weight: ')
+        weight = int(input('Weight: '))
 
         #get height (imperial or default metric)
         if args.imperial:
             print("Input Height")
-            feet = input('Feet: ')
-            inches = input('Inches: ')
+            feet = int(input('Feet: '))
+            inches = int(input('Inches: '))
             height = feet*30.48+inches*2.54
         else:
             height = input('Height: ')
@@ -64,7 +62,7 @@ if __name__ == '__main__':
 skier_code = calc_skier_code(weight,height,age,skier_type)
 
 #retreive letter code
-letter = list(string.uppercase)[skier_code]
+#letter = list(string.uppercase)[skier_code]
 
 #compute bsl code
 bsl_code = calc_bsl_code(boot_length)
