@@ -1,6 +1,6 @@
 import string
 import argparse #for initial arguments
-from din import calc_skier_code, calc_bsl_code, calc_din_setting
+from din import calc_skier_code, calc_bsl_code, calc_din_setting, feet_to_cm
 
 def parseArguments():
     #Create Argument Parser
@@ -21,7 +21,7 @@ def parseArguments():
 
 if __name__ == '__main__':
     # Print Title
-    print ("Din Calculator Version 0.1")
+    print ("Din Calculator Version 0.2")
     print ("Richard Williams 2016")
     print ("")
 
@@ -44,12 +44,12 @@ if __name__ == '__main__':
             print("Input Height")
             feet = int(input('Feet: '))
             inches = int(input('Inches: '))
-            height = feet*30.48+inches*2.54
+            height = feet_to_cm(feet,inches)
         else:
             height = input('Height: ')
 
         age = input('Age: ')
-        skier_type = input('Skier Type: ') # How to make this just the five options?
+        skier_type = input('Skier Type: ')
         boot_length = input('Boot Sole Length: ')
     else:
         weight = args.weight

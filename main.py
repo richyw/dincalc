@@ -16,6 +16,7 @@ from kivy.uix.image import Image
 from kivy.properties import StringProperty
 from kivy.clock import Clock
 from din import calc_skier_code, calc_bsl_code, calc_din_setting
+from din import feet_to_cm
 
 class MainScreen(Screen):
     din_setting = StringProperty()
@@ -35,12 +36,19 @@ class MainScreen(Screen):
     def getTall(self, tall):
         self.tall = tall
 
+    def getFeet(self,feet):
+        self.feet = feet
+
+    def getInch(self,inch):
+        self.inch = inch
+
     def getAge(self, age):
         self.age = age
 
     def calculate_din(self):
         """Calculate the din setting of the skier"""
         try:
+            self.tall = feet_to_cm(self.feet,self.inch)
             skier_code = calc_skier_code(self.weight,self.tall,self.age,self.skier_type)
             bsl_code = calc_bsl_code(self.boot_length)
         except AttributeError:

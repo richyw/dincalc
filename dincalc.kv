@@ -19,7 +19,7 @@ ScreenManagement:
         Label:
             font_size: '48dp'
             size_hint: 0.6, 0.15
-            pos_hint: {'center_x':0.5, 'center_y':0.9}
+            pos_hint: {'center_x':0.5, 'center_y':0.925}
             text: 'Din Calculator'
 
         GridLayout:
@@ -39,59 +39,77 @@ ScreenManagement:
 
             Label:
                 font_size: '24sp'
-                size_hint: 0.4,0.15
+                size_hint: 0.3,0.15
                 text: "Weight"
 
             TextInput:
                 id: weight_input
                 font_size: '24sp'
-                size_hint: 0.4,0.15
+                size_hint: 0.5,0.15
                 input_filter: 'int'
                 on_text: root.getWeight(args[1])
 
             Label:
                 font_size: '24sp'
-                size_hint: 0.4,0.15
+                size_hint: 0.3,0.15
                 text: "Height"
 
-            TextInput:
-                id: height_input
-                font_size: '24sp'
-                size_hint: 0.4,0.15
-                input_filter: 'int'
-                on_text: root.getTall(args[1])
+            BoxLayout:
+                id:height_box
+                orientation: 'horizontal'
+                size_hint: 0.5,0.15
+
+                TextInput:
+                    id: feet_input
+                    font_size: '24sp'
+                    input_filter: 'int'
+                    on_text: root.getFeet(args[1])
+
+                Label:
+                    font_size: '20sp'
+                    text: "Foot"
+
+                TextInput:
+                    id: inch_input
+                    font_size: '24sp'
+                    input_filter: 'int'
+                    on_text: root.getInch(args[1])
+
+                Label:
+                    font_size: '20sp'
+                    text: "Inch"
 
             Label:
                 font_size: '24sp'
-                size_hint: 0.4,0.15
+                size_hint: 0.3,0.15
                 text: "Age"
 
             TextInput:
                 id: age_input
                 font_size: '24sp'
-                size_hint: 0.4,0.15
+                size_hint: 0.5,0.15
                 input_filter: 'int'
                 on_text: root.getAge(args[1])
 
             Label:
                 font_size: '24sp'
-                size_hint: 0.4,0.15
+                size_hint: 0.3,0.15
                 input_filter: 'int'
                 text: "BSL"
 
             TextInput:
                 id: boot_length_input
                 font_size: '24sp'
-                size_hint: 0.4,0.15
+                size_hint: 0.5,0.15
                 on_text: root.getBootLength(args[1])
 
             Label:
                 font_size: '24sp'
-                size_hint: 0.4,0.15
+                size_hint: 0.3,0.15
                 text: "Ability"
 
             BoxLayout:
-                size_hint: 0.4,0.15
+                size_hint: 0.5,0.15
                 orientation: 'horizontal'
                 ToggleButton:
                     group: 'skiertype'

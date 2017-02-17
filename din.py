@@ -1,7 +1,7 @@
 def calc_skier_code(weight,height,age,skier_type):
-    """ This function takes the weight, height, age and skier type and returns
-    the numerical value that corresponds to the corrected skier code on the din
-    chart"""
+    """ This function takes the weight, height, age and skier type
+    and returns the numerical value that corresponds to the
+    corrected skier code on the din chart"""
     height = int(height)
     weight = int(weight)
     age = int(age)
@@ -28,7 +28,7 @@ def calc_skier_code(weight,height,age,skier_type):
         if height >= val:
             height_code = ind + constant
 
-    #assign skier code to be height code or the weight code - whichever is lower
+    #assign skier code to be height code or the weight code whichever is lower
     if height_code < weight_code:
         skier_code = height_code
     else:
@@ -51,8 +51,8 @@ def calc_skier_code(weight,height,age,skier_type):
     return skier_code
 
 def calc_bsl_code(bsl):
-    """takes a boot sole length (in mm) and computes the catagory on the din
-    chart"""
+    """takes a boot sole length (in mm) and computes the catagory
+    on the din chart"""
     bsl = int(bsl)
     bsl_range = [0,231,251,271,291,311,331,355]
     for (ind, val) in enumerate(bsl_range):
@@ -82,3 +82,13 @@ def calc_din_setting(skier_code,bsl_code):
 
     din_setting = din_chart[skier_code][bsl_code]
     return din_setting
+
+def feet_to_cm(feet,inches):
+    """Function to convert feet and inches to cm"""
+    feet = float(feet)
+    inches = float(inches)
+    return int(feet*30.48+inches*2.54)
+
+def pounds_to_kg(pounds):
+    """Function to convert pounds to kg"""
+    return int(pounds*0.453592)
