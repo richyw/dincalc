@@ -13,18 +13,15 @@ from kivy.properties import ListProperty
 from kivy.uix.widget import Widget
 from kivy.graphics import Color, Rectangle
 from kivy.uix.image import Image
-from calc_skier_code import calc_skier_code
-from calc_bsl_code import calc_bsl_code
-from calc_din_setting import calc_din_setting
-
-def calc_din_setting(weight,height,age,skier_type):
-    """Calculate the din setting of the skier"""
-    skier_code = calc_skier_code(weight,height,age,skier_type)
-    bsl_code = calc_bsl_code(boot_length)
-    din_setting = calc_din_setting(skier_code,bsl_code)
-    return din_setting
+from kivy.properties import StringProperty
+from kivy.clock import Clock
+from din import calc_skier_code, calc_bsl_code, calc_din_setting
 
 class MainScreen(Screen):
+    din_setting = StringProperty()
+    def __init__(self, **kwargs):
+        super(Screen,self).__init__(**kwargs)
+        self.din_setting = ""
 
     def getSkierType(self, skier_type):
         self.skier_type = skier_type
@@ -40,6 +37,19 @@ class MainScreen(Screen):
 
     def getAge(self, age):
         self.age = age
+
+    def calculate_din(self):
+        """Calculate the din setting of the skier"""
+        try:
+            skier_code = calc_skier_code(self.weight,self.tall,self.age,self.skier_type)
+            bsl_code = calc_bsl_code(self.boot_length)
+        except AttributeError:
+            pass
+        else:
+            din = calc_din_setting(skier_code,bsl_code)
+            self.din_setting = str(din)
+
+    #event = Clock.schedule_interval(calculate_din, 1 / 30.)
 
 class ChartScreen(Screen):
     pass

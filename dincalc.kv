@@ -120,15 +120,22 @@ ScreenManagement:
             text: "Chart"
             pos_hint: {'center_x':.5, 'center_y': .1}
             size_hint: 0.5,0.1
-            font_size: '36dp'
+            font_size: '36sp'
+
+        Label:
+            id: din_display
+            text: root.din_setting
+            pos_hint: {'center_x':0.5, 'center_y':0.25}
+            font_size: '48dp'
+            size_hint: 0.6, 0.15
 
         Button:
-            id: dinvalue
-            on_release: root.calculate_din()
-            text: root.din_setting
+            id: calculatebutton
+            on_press: root.calculate_din()
+            text: "Calculate"
             pos_hint: {'center_x':.5, 'center_y': .4}
-            size_hint: 0.3,0.2
-            font_size: '64sp'
+            size_hint: 0.5,0.1
+            font_size: '36sp'
 
 <ChartScreen>:
     name: 'chart'

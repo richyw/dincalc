@@ -35,7 +35,7 @@ def calc_skier_code(weight,height,age,skier_type):
         skier_code = weight_code
 
     #make corrections for age
-    if age <= 9 or age > 50:
+    if age <= 9 or age >= 50:
         skier_code -= 1
 
     #make corrections for skier type
